@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide interactif – Oral du Projet – Bac Pro Métiers de l'Accueil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:opsz,wght@9..40,300..700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF7F2;
+    --bg-alt: #F2EDE3;
+    --ink: #1A1F2E;
+    --ink-soft: #4A5163;
+    --accent: #D9534F;
+    --accent-soft: #F4D5D3;
+    --gold: #C8A961;
+    --green: #5B8266;
+    --green-soft: #DCE8DF;
+    --blue: #3A6B8A;
+    --blue-soft: #D5E2EC;
+    --line: #E5DED1;
+    --shadow: 0 2px 8px rgba(26,31,46,0.06);
+    --shadow-lg: 0 8px 24px rgba(26,31,46,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+    padding: 0;
+  }
+
+  /* === HEADER === */
+  .hero {
+    background: linear-gradient(135deg, #1A1F2E 0%, #2D3447 100%);
+    color: var(--bg);
+    padding: 60px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 300px; height: 300px;
+    background: var(--gold);
+    border-radius: 50%;
+    opacity: 0.08;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 250px; height: 250px;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0.10;
+  }
+  .hero-content { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+  .hero .eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 300;
+  }
+  .hero p.subtitle {
+    font-size: 1.15rem;
+    max-width: 650px;
+    color: rgba(250,247,242,0.75);
+    margin-bottom: 30px;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(250,247,242,0.15);
+  }
+  .meta-item .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .meta-item .value {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+
+  /* === MAIN === */
+  main {
+    max-width: 1100px;
+    margin: -50px auto 0;
+    padding: 0 40px 80px;
+    position: relative;
+    z-index: 3;
+  }
+
+  /* === NAVIGATION ANCRES === */
+  .toc {
+    background: white;
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 50px;
+  }
+  .toc h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .toc h2::before {
+    content: "";
+    width: 6px; height: 24px;
+    background: var(--accent);
+    border-radius: 3px;
+  }
+  .toc ol {
+    list-style: none;
+    counter-reset: toc;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 8px;
+  }
+  .toc ol li {
+    counter-increment: toc;
+  }
+  .toc ol li a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: var(--ink);
+    text-decoration: none;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+  }
+  .toc ol li a::before {
+    content: counter(toc, decimal-leading-zero);
+    font-family: 'Fraunces', serif;
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 500;
+    min-width: 24px;
+  }
+  .toc ol li a:hover {
+    background: var(--accent-soft);
+    transform: translateX(4px);
+  }
+
+  /* === SECTIONS === */
+  section.module {
+    margin-bottom: 60px;
+    scroll-margin-top: 30px;
+  }
+  .section-header {
+    margin-bottom: 30px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--line);
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .section-header .num {
+    font-family: 'Fraunces', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+    font-style: italic;
+  }
+  .section-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    flex: 1;
+  }
+  .section-header .tag {
+    background: var(--bg-alt);
+    color: var(--ink-soft);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  /* === CARDS GENERIQUES === */
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+  }
+  .card.highlight {
+    border-left: 4px solid var(--accent);
+  }
+  .card.tip {
+    background: var(--green-soft);
+    border-left: 4px solid var(--green);
+  }
+  .card.warning {
+    background: #FDF4E8;
+    border-left: 4px solid var(--gold);
+  }
+  .card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .card p { color: var(--ink-soft); margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .card ul, .card ol { margin-left: 20px; color: var(--ink-soft); }
+  .card li { margin-bottom: 6px; }
+
+  /* === TIMELINE 5 MIN === */
+  .timeline {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+  }
+  .timeline-bar {
+    display: flex;
+    height: 56px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+  .timeline-segment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 0 8px;
+    transition: flex 0.3s;
+  }
+  .seg-1 { background: var(--blue); flex: 0.5; }
+  .seg-2 { background: var(--accent); flex: 1.5; }
+  .seg-3 { background: var(--gold); flex: 1; }
+  .seg-4 { background: var(--green); flex: 1; }
+  .seg-5 { background: #6B5B95; flex: 1; }
+
+  .timeline-detail {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+  }
+  .timeline-detail > div {
+    background: var(--bg-alt);
+    padding: 14px;
+    border-radius: 8px;
+    border-top: 3px solid;
+  }
+  .timeline-detail > div:nth-child(1) { border-color: var(--blue); }
+  .timeline-detail > div:nth-child(2) { border-color: var(--accent); }
+  .timeline-detail > div:nth-child(3) { border-color: var(--gold); }
+  .timeline-detail > div:nth-child(4) { border-color: var(--green); }
+  .timeline-detail > div:nth-child(5) { border-color: #6B5B95; }
+  .timeline-detail h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .timeline-detail .duration {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+  .timeline-detail p {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  /* === ACCORDÉON === */
+  details.accordion {
+    background: white;
+    border-radius: 10px;
+    padding: 0;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+  details.accordion[open] {
+    box-shadow: var(--shadow-lg);
+  }
+  details.accordion summary {
+    padding: 18px 24px;
+    cursor: pointer;
+    font-weight: 500;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    user-select: none;
+    transition: background 0.2s;
+  }
+  details.accordion summary:hover {
+    background: var(--bg-alt);
+  }
+  details.accordion summary::-webkit-details-marker { display: none; }
+  details.accordion summary::after {
+    content: "+";
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    color: var(--accent);
+    transition: transform 0.3s;
+    line-height: 1;
+  }
+  details.accordion[open] summary::after {
+    content: "−";
+  }
+  details.accordion .acc-content {
+    padding: 0 24px 24px;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+    color: var(--ink-soft);
+  }
+  details.accordion .acc-content ul { margin-left: 20px; }
+  details.accordion .acc-content li { margin-bottom: 8px; }
+
+  /* === CHECKLIST === */
+  .checklist {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+  }
+  .checklist h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+  }
+  .checklist label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-bottom: 4px;
+  }
+  .checklist label:hover {
+    background: var(--bg-alt);
+  }
+  .checklist input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px; height: 22px;
+    border: 2px solid var(--line);
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.2s;
+  }
+  .checklist input[type="checkbox"]:checked {
+    background: var(--green);
+    border-color: var(--green);
+  }
+  .checklist input[type="checkbox"]:checked::after {
+    content: "✓";
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .checklist input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
+    color: var(--ink-soft);
+    opacity: 0.7;
+  }
+  .checklist span { flex: 1; }
+  .progress {
+    margin-top: 20px;
+    padding: 12px 16px;
+    background: var(--bg-alt);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .progress-bar {
+    height: 8px;
+    background: var(--line);
+    border-radius: 4px;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--green);
+    transition: width 0.4s;
+    width: 0%;
+  }
+
+  /* === GRILLE === */
+  .grid-eval {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+  }
+  .grid-eval-header {
+    background: var(--ink);
+    color: white;
+    padding: 18px 24px;
+  }
+  .grid-eval-header h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+  .grid-eval-body { padding: 0; }
+  .grid-row {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .grid-row:last-child { border-bottom: none; }
+  .grid-row .criterion {
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .grid-row .expected {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  .grid-row .levels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .level {
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+  .level.nm { background: #FCE8E6; border-left: 3px solid #B83A2E; }
+  .level.im { background: #FDF4E8; border-left: 3px solid var(--gold); }
+  .level.m { background: var(--green-soft); border-left: 3px solid var(--green); }
+  .level.bm { background: var(--blue-soft); border-left: 3px solid var(--blue); }
+  .level .lvl-name {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  /* === QUESTIONS === */
+  .question-card {
+    background: white;
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+    border-left: 3px solid var(--blue);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .question-card .q-icon {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--blue);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .question-card p { color: var(--ink); }
+
+  /* === MINUTEUR === */
+  .timer-box {
+    background: linear-gradient(135deg, #1A1F2E 0%, #2D3447 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+  }
+  .timer-display {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-weight: 300;
+    margin: 20px 0;
+    letter-spacing: -0.02em;
+    color: var(--gold);
+  }
+  .timer-controls {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .timer-btn {
+    background: white;
+    color: var(--ink);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+  }
+  .timer-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  .timer-btn.primary {
+    background: var(--accent);
+    color: white;
+  }
+  .timer-presets {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .preset-btn {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+  }
+  .preset-btn:hover {
+    background: rgba(255,255,255,0.2);
+  }
+  .timer-status {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    min-height: 24px;
+    margin-top: 12px;
+  }
+
+  /* === TABLEAU SUPPORT === */
+  .support-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .support-card {
+    background: white;
+    border: 2px dashed var(--line);
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .support-card:hover {
+    border-color: var(--accent);
+    border-style: solid;
+    transform: translateY(-2px);
+  }
+  .support-card .page-num {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .support-card h4 {
+    margin: 8px 0 6px;
+    font-size: 0.95rem;
+  }
+  .support-card p {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+
+  /* === ZONE NOTES === */
+  .notes-zone {
+    background: white;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+  }
+  .notes-zone label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    margin-top: 18px;
+    color: var(--ink);
+  }
+  .notes-zone label:first-of-type { margin-top: 0; }
+  .notes-zone label .hint {
+    font-weight: 400;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+  .notes-zone textarea, .notes-zone input[type="text"] {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--bg);
+    resize: vertical;
+    transition: border 0.2s;
+  }
+  .notes-zone textarea:focus, .notes-zone input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: white;
+  }
+  .notes-zone textarea { min-height: 80px; }
+  .notes-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+  }
+  .btn-primary:hover { background: #C0413D; }
+  .btn-secondary {
+    background: var(--bg-alt);
+    color: var(--ink);
+  }
+  .btn-secondary:hover { background: var(--line); }
+
+  /* === DIMENSIONS GRID === */
+  .dim-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .dim-card {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid;
+  }
+  .dim-card.eco { border-color: var(--gold); }
+  .dim-card.cult { border-color: #6B5B95; }
+  .dim-card.dd { border-color: var(--green); }
+  .dim-card.num { border-color: var(--blue); }
+  .dim-card .dim-icon {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    font-style: italic;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .dim-card.eco .dim-icon { color: var(--gold); }
+  .dim-card.cult .dim-icon { color: #6B5B95; }
+  .dim-card.dd .dim-icon { color: var(--green); }
+  .dim-card.num .dim-icon { color: var(--blue); }
+  .dim-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .dim-card p {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .dim-card .examples {
+    background: var(--bg-alt);
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    margin-top: 10px;
+  }
+  .dim-card .examples strong { color: var(--ink); }
+
+  /* === PIÈGES === */
+  .pitfalls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .pitfall-col {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+  }
+  .pitfall-col.bad { border-top: 4px solid #B83A2E; }
+  .pitfall-col.good { border-top: 4px solid var(--green); }
+  .pitfall-col h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pitfall-col.bad h4 { color: #B83A2E; }
+  .pitfall-col.good h4 { color: var(--green); }
+  .pitfall-col ul {
+    list-style: none;
+    margin: 0;
+  }
+  .pitfall-col li {
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+  .pitfall-col.bad li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    color: #B83A2E;
+    font-weight: bold;
+  }
+  .pitfall-col.good li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: bold;
+  }
+  @media (max-width: 700px) {
+    .pitfalls { grid-template-columns: 1fr; }
+  }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--ink);
+    color: rgba(250,247,242,0.6);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.85rem;
+  }
+  footer p { margin-bottom: 6px; }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 700px) {
+    .hero { padding: 40px 20px 60px; }
+    main { padding: 0 20px 60px; }
+    .toc { padding: 22px; }
+    .card, .checklist, .grid-eval-body, .timeline, .notes-zone { padding: 20px; }
+    .grid-row { padding: 16px; }
+  }
+
+  /* Print */
+  @media print {
+    .timer-box, .notes-actions { display: none; }
+    body { background: white; }
+    .card, .checklist { box-shadow: none; border: 1px solid var(--line); break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Bac Pro Métiers de l'Accueil — Session 2026 · Mme LÉGER Isabelle</div>
+    <h1>Préparer<br>l'oral de mon <em>projet</em></h1>
+    <p class="subtitle">Un guide interactif pour structurer ta présentation, anticiper les questions du jury et arriver le jour J avec confiance et clarté.</p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <div class="label">Durée totale</div>
+        <div class="value">15 minutes</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Présentation</div>
+        <div class="value">5 min</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Échange jury</div>
+        <div class="value">10 min</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Coefficient</div>
+        <div class="value">2</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Support autorisé</div>
+        <div class="value">5 pages max.</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- TABLE DES MATIÈRES -->
+  <nav class="toc">
+    <h2>Sommaire du guide</h2>
+    <ol>
+      <li><a href="#cadre">Le cadre officiel de l'épreuve</a></li>
+      <li><a href="#structure">Les 6 points obligatoires de l'oral</a></li>
+      <li><a href="#timing">Mes 5 minutes de présentation</a></li>
+      <li><a href="#dimensions">Les 4 dimensions à intégrer</a></li>
+      <li><a href="#grille">Sur quoi je suis évalué·e</a></li>
+      <li><a href="#questions">Les questions probables du jury</a></li>
+      <li><a href="#support">Mon support de 5 pages</a></li>
+      <li><a href="#preparation">Ma fiche de préparation personnelle</a></li>
+      <li><a href="#pieges">Les pièges à éviter / les bons réflexes</a></li>
+      <li><a href="#checklist">Ma check-list de la dernière semaine</a></li>
+      <li><a href="#minuteur">Minuteur d'entraînement</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. CADRE -->
+  <section class="module" id="cadre">
+    <div class="section-header">
+      <span class="num">01</span>
+      <h2>Le cadre officiel de l'épreuve</h2>
+      <span class="tag">À connaître par cœur</span>
+    </div>
+
+    <div class="card highlight">
+      <h3>Qui est en face de toi ?</h3>
+      <p>La commission est composée de <strong>deux professeurs</strong> :</p>
+      <ul>
+        <li>Un professeur d'enseignement général</li>
+        <li>Un professeur d'enseignement professionnel</li>
+      </ul>
+      <p style="margin-top:10px;">L'un des deux a suivi la réalisation de ton projet. <em>Astuce : adresse-toi aux deux, pas seulement à celui que tu connais.</em></p>
+    </div>
+
+    <div class="card">
+      <h3>Comment se déroule l'oral ?</h3>
+      <p>L'évaluation est <strong>globale</strong> : le jury n'évalue pas séparément ta présentation et l'entretien. Tout compte, du début à la fin.</p>
+      <ul>
+        <li><strong>5 minutes</strong> : tu présentes ton projet (sans être interrompu·e)</li>
+        <li><strong>10 minutes</strong> : le jury te pose des questions et engage un échange</li>
+      </ul>
+    </div>
+
+    <div class="card warning">
+      <h3>Important sur le support</h3>
+      <p>Tu peux apporter un support de <strong>5 pages maximum</strong>. Ce support n'est <strong>pas évalué en lui-même</strong> et le jury <strong>ne peut pas exiger</strong> de le consulter. Pas de matériel particulier (pas d'ordinateur, pas de vidéoprojecteur) sauf aménagement spécifique pour situation de handicap.</p>
+    </div>
+  </section>
+
+  <!-- 2. STRUCTURE -->
+  <section class="module" id="structure">
+    <div class="section-header">
+      <span class="num">02</span>
+      <h2>Les 6 points obligatoires de l'oral</h2>
+      <span class="tag">Aucun ne doit manquer</span>
+    </div>
+
+    <p style="margin-bottom:20px; color:var(--ink-soft);">Clique sur chaque point pour découvrir ce que tu dois dire. Ces 6 éléments sont imposés par l'arrêté du 20 octobre 2020. Si tu en oublies un, tu perds des points.</p>
+
+    <details class="accordion">
+      <summary>① Présentation du candidat : diplôme et spécialité préparée</summary>
+      <div class="acc-content">
+        <p><strong>À dire (en 30 secondes max) :</strong></p>
+        <ul>
+          <li>Ton prénom et ton nom</li>
+          <li>« Je prépare le baccalauréat professionnel <strong>Métiers de l'Accueil</strong> »</li>
+          <li>Le nom de ton lycée (facultatif mais valorisant)</li>
+          <li>Le titre de ton projet</li>
+          <li>S'il s'agit d'un projet collectif ou individuel</li>
+        </ul>
+        <p style="margin-top:10px;"><em>Exemple d'ouverture : « Bonjour, je m'appelle [Prénom Nom], je prépare le bac professionnel Métiers de l'Accueil au lycée […]. Je vais vous présenter aujourd'hui mon projet intitulé […], réalisé collectivement avec [X] camarades. »</em></p>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>② Démarche de réalisation et part individuelle dans le projet collectif</summary>
+      <div class="acc-content">
+        <p><strong>À structurer en 4 sous-points :</strong></p>
+        <ul>
+          <li><strong>L'objectif du projet</strong> : à quoi sert-il ? quel besoin il répond ?</li>
+          <li><strong>Les étapes</strong> : de l'idée à la réalisation finale, ordonnées dans le temps</li>
+          <li><strong>Les acteurs</strong> : qui est intervenu (camarades, professeurs, partenaires extérieurs, entreprise…) ?</li>
+          <li><strong>Ta part individuelle</strong> : qu'as-tu fait, toi, concrètement ? Quelles tâches t'ont été confiées ?</li>
+        </ul>
+        <p style="margin-top:10px;"><strong>⚠️ Si projet collectif :</strong> le jury veut entendre <em>ton</em> apport personnel. Évite « on a fait », privilégie « j'ai fait ».</p>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>③ Difficultés rencontrées ET aspects positifs</summary>
+      <div class="acc-content">
+        <p>Le jury attend explicitement les <strong>2 volets</strong> : ce qui s'est bien passé <em>et</em> ce qui a posé problème.</p>
+        <ul>
+          <li><strong>Difficultés</strong> : nomme-les précisément (organisation, communication dans le groupe, contact avec un partenaire, gestion du temps, technique…)</li>
+          <li><strong>Comment tu les as dépassées</strong> (ou pas) : que la difficulté soit résolue ou non, le jury veut un <strong>regard réflexif</strong>. Dire « je n'ai pas réussi à… » est valable si tu expliques pourquoi.</li>
+          <li><strong>Aspects positifs</strong> : réussites, fierté, ce qui t'a plu</li>
+        </ul>
+        <p style="margin-top:10px;"><em>Astuce : prépare au moins 2 difficultés et 2 réussites concrètes, avec des exemples.</em></p>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>④ Ton avis personnel et les pistes d'amélioration</summary>
+      <div class="acc-content">
+        <p>Le jury attend un <strong>avis justifié et étayé</strong>. « C'était bien » ne suffit pas.</p>
+        <ul>
+          <li>Que penses-tu de la production finale ?</li>
+          <li>Es-tu satisfait·e ? Pourquoi ?</li>
+          <li>Si tu devais recommencer, que ferais-tu différemment ?</li>
+          <li>Quelles perspectives de développement pour aller plus loin ?</li>
+        </ul>
+        <p style="margin-top:10px;"><em>Exemple : « Je suis fier·e de notre accueil parce que les visiteurs ont été nombreux et nous ont fait des retours positifs. Cependant, je referais une chose différemment : prévoir une signalétique plus visible, parce que plusieurs personnes se sont perdues à l'entrée. »</em></p>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>⑤ Les dimensions socio-économiques, culturelles, développement durable et numérique</summary>
+      <div class="acc-content">
+        <p>Ce point est <strong>obligatoire</strong> et souvent oublié. Tu dois montrer comment ton projet s'inscrit dans des problématiques plus larges. <a href="#dimensions" style="color:var(--accent);">Voir le module dédié plus bas.</a></p>
+        <ul>
+          <li><strong>Socio-économique</strong> : quel impact sur les personnes, l'économie locale, le secteur ?</li>
+          <li><strong>Culturelle</strong> : quel lien avec un patrimoine, une tradition, un public spécifique ?</li>
+          <li><strong>Développement durable</strong> : quels gestes éco-responsables ? quel impact environnemental ?</li>
+          <li><strong>Numérique</strong> : quels outils numériques utilisés ? quels enjeux (réseaux sociaux, données, accessibilité) ?</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>⑥ Les compétences acquises (insertion pro / poursuite d'études)</summary>
+      <div class="acc-content">
+        <p>Tu dois faire le lien entre ce projet et <strong>ton avenir</strong>.</p>
+        <p><strong>Compétences professionnelles à valoriser pour le bac pro Métiers de l'Accueil :</strong></p>
+        <ul>
+          <li>Accueillir un public (physique, téléphonique, numérique)</li>
+          <li>Gérer une situation de communication, y compris difficile</li>
+          <li>Travailler en équipe, coordonner</li>
+          <li>S'organiser, gérer son temps, respecter des délais</li>
+          <li>Utiliser des outils numériques professionnels</li>
+          <li>S'adapter à un public varié</li>
+        </ul>
+        <p style="margin-top:10px;"><strong>Et après ?</strong> Précise si tu vises l'insertion professionnelle (préciser quel type de poste) ou une poursuite d'études (BTS Tourisme, BTS SAM, BTS NDRC, BTS Communication…).</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- 3. TIMING -->
+  <section class="module" id="timing">
+    <div class="section-header">
+      <span class="num">03</span>
+      <h2>Mes 5 minutes de présentation</h2>
+      <span class="tag">Modèle indicatif</span>
+    </div>
+
+    <p style="margin-bottom:20px; color:var(--ink-soft);">Voici une répartition possible de tes 5 minutes. Ce n'est qu'un guide : ce qui compte, c'est que tu sois <strong>fluide</strong> et que tu couvres tous les points obligatoires.</p>
+
+    <div class="timeline">
+      <div class="timeline-bar">
+        <div class="timeline-segment seg-1">30 s</div>
+        <div class="timeline-segment seg-2">1 min 30</div>
+        <div class="timeline-segment seg-3">1 min</div>
+        <div class="timeline-segment seg-4">1 min</div>
+        <div class="timeline-segment seg-5">1 min</div>
+      </div>
+      <div class="timeline-detail">
+        <div>
+          <h4>Introduction</h4>
+          <p class="duration">≈ 30 secondes</p>
+          <p>Toi, ton diplôme, ton lycée, le titre de ton projet, projet individuel ou collectif.</p>
+        </div>
+        <div>
+          <h4>Démarche</h4>
+          <p class="duration">≈ 1 min 30</p>
+          <p>Objectifs, étapes, acteurs, ta part individuelle. Le cœur de ton exposé.</p>
+        </div>
+        <div>
+          <h4>Bilan</h4>
+          <p class="duration">≈ 1 min</p>
+          <p>Aspects positifs, difficultés, comment tu les as dépassées. Ton avis personnel.</p>
+        </div>
+        <div>
+          <h4>Dimensions</h4>
+          <p class="duration">≈ 1 min</p>
+          <p>Socio-éco, culturel, développement durable, numérique : choisis 2 ou 3 angles forts.</p>
+        </div>
+        <div>
+          <h4>Ouverture</h4>
+          <p class="duration">≈ 1 min</p>
+          <p>Compétences acquises, perspectives d'amélioration, projet d'avenir (insertion ou poursuite d'études).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card tip">
+      <h3>Le test du miroir</h3>
+      <p>Avant le jour J, entraîne-toi <strong>au moins 5 fois à voix haute</strong>, chronomètre en main. Tu peux utiliser le minuteur en bas de cette page. Filme-toi avec ton téléphone : tu verras ce qui doit être amélioré (ton, regard, mains, fluidité).</p>
+    </div>
+  </section>
+
+  <!-- 4. DIMENSIONS -->
+  <section class="module" id="dimensions">
+    <div class="section-header">
+      <span class="num">04</span>
+      <h2>Les 4 dimensions à intégrer</h2>
+      <span class="tag">Souvent oublié — bonus garanti</span>
+    </div>
+
+    <p style="margin-bottom:20px; color:var(--ink-soft);">Pour chaque dimension, demande-toi : <em>« comment mon projet l'illustre-t-il, même indirectement ? »</em> Tu n'es pas obligé·e de toutes les approfondir, mais tu dois pouvoir en parler si on te questionne.</p>
+
+    <div class="dim-grid">
+      <div class="dim-card eco">
+        <div class="dim-icon">€</div>
+        <h4>Socio-économique</h4>
+        <p>L'impact humain et économique du projet.</p>
+        <div class="examples">
+          <strong>Exemples Accueil :</strong> nombre de personnes accueillies, retombées pour l'entreprise/le partenaire, valorisation d'un service public, image de l'établissement.
+        </div>
+      </div>
+      <div class="dim-card cult">
+        <div class="dim-icon">✦</div>
+        <h4>Culturelle</h4>
+        <p>Le lien avec un patrimoine, un public, une identité.</p>
+        <div class="examples">
+          <strong>Exemples Accueil :</strong> accueil d'un public spécifique (touristes, scolaires, séniors), valorisation d'un patrimoine local, multiculturalité, langues étrangères mobilisées.
+        </div>
+      </div>
+      <div class="dim-card dd">
+        <div class="dim-icon">⚘</div>
+        <h4>Développement durable</h4>
+        <p>Les choix éco-responsables faits pendant le projet.</p>
+        <div class="examples">
+          <strong>Exemples Accueil :</strong> supports dématérialisés plutôt que papier, gobelets réutilisables, tri des déchets sur l'évènement, fournisseurs locaux, accessibilité PMR.
+        </div>
+      </div>
+      <div class="dim-card num">
+        <div class="dim-icon">▦</div>
+        <h4>Numérique</h4>
+        <p>Les outils numériques utilisés et leurs enjeux.</p>
+        <div class="examples">
+          <strong>Exemples Accueil :</strong> communication via réseaux sociaux, outil de réservation en ligne, QR code, plateforme collaborative (Drive, Teams), protection des données personnelles des visiteurs (RGPD).
+        </div>
+      </div>
+    </div>
+
+    <div class="card tip">
+      <h3>Conseil ciblé Métiers de l'Accueil</h3>
+      <p>Le jury sait que ton métier d'accueil est en pleine transformation : <strong>numérisation des services</strong> (bornes interactives, chatbots), <strong>exigences environnementales</strong> (accueil éco-responsable), <strong>diversité des publics</strong>. Si tu peux en parler avec un exemple concret tiré de ton projet, tu marques des points sur le critère « enjeux du 21e siècle ».</p>
+    </div>
+  </section>
+
+  <!-- 5. GRILLE -->
+  <section class="module" id="grille">
+    <div class="section-header">
+      <span class="num">05</span>
+      <h2>Sur quoi je suis évalué·e</h2>
+      <span class="tag">Grille officielle</span>
+    </div>
+
+    <p style="margin-bottom:20px; color:var(--ink-soft);">Voici la grille officielle utilisée par le jury (arrêté du 20 octobre 2020). Note de 0 à 20, coefficient 2. Les 4 niveaux : <strong>NM</strong> Non Maîtrisé, <strong>IM</strong> Insuffisamment Maîtrisé, <strong>M</strong> Maîtrisé, <strong>BM</strong> Bien Maîtrisé.</p>
+
+    <div class="grid-eval">
+      <div class="grid-eval-header">
+        <h3>Capacité 1 — RESTITUER le travail mené</h3>
+      </div>
+      <div class="grid-eval-body">
+        <div class="grid-row">
+          <div class="criterion">Identification des objectifs, étapes, acteurs et part individuelle</div>
+          <div class="expected">Attendu : un exposé organisé qui couvre objectifs, étapes, acteurs, activité individuelle.</div>
+          <div class="levels">
+            <div class="level nm"><span class="lvl-name">NM</span>Le jury n'identifie pas la démarche de projet.</div>
+            <div class="level im"><span class="lvl-name">IM</span>Exposé lacunaire, points partiellement restitués même avec relance.</div>
+            <div class="level m"><span class="lvl-name">M</span>Exposé qui restitue globalement la démarche, jury identifie les éléments.</div>
+            <div class="level bm"><span class="lvl-name">BM</span>Exposé explicite, démarche conforme, implication et prise de recul.</div>
+          </div>
+        </div>
+        <div class="grid-row">
+          <div class="criterion">Hiérarchisation correcte des informations en introduction</div>
+          <div class="expected">Attendu : une introduction structurée qui situe, annonce, et crée l'envie d'écouter.</div>
+          <div class="levels">
+            <div class="level nm"><span class="lvl-name">NM</span>Aucun propos introducteur.</div>
+            <div class="level im"><span class="lvl-name">IM</span>Introduction lacunaire sans hiérarchie. Le jury ne comprend pas ce qui suit.</div>
+            <div class="level m"><span class="lvl-name">M</span>Introduction claire avec un plan globalement cohérent.</div>
+            <div class="level bm"><span class="lvl-name">BM</span>Introduction claire, cohérente, efficace, qui crée l'envie d'écouter.</div>
+          </div>
+        </div>
+        <div class="grid-row">
+          <div class="criterion">Clarté de la présentation et pertinence des termes</div>
+          <div class="expected">Attendu : un propos cohérent, explicite, précis, avec un vocabulaire professionnel maîtrisé.</div>
+          <div class="levels">
+            <div class="level nm"><span class="lvl-name">NM</span>Propos incohérent, jury a du mal à comprendre.</div>
+            <div class="level im"><span class="lvl-name">IM</span>Propos confus, termes inappropriés ou approximatifs.</div>
+            <div class="level m"><span class="lvl-name">M</span>Propos clair, termes globalement adaptés au thème.</div>
+            <div class="level bm"><span class="lvl-name">BM</span>Propos explicite, vocabulaire maîtrisé, pertinence appréciée.</div>
+          </div>
+        </div>
+        <div class="grid-row">
+          <div class="criterion">Autonomie d'expression par rapport au support</div>
+          <div class="expected">Attendu : capacité à parler 5 minutes en continu sans lire ni avoir besoin de relances. Support non obligatoire.</div>
+          <div class="levels">
+            <div class="level nm"><span class="lvl-name">NM</span>Le candidat lit son support.</div>
+            <div class="level im"><span class="lvl-name">IM</span>Présentation non continue, besoin de relances pendant les 5 min.</div>
+            <div class="level m"><span class="lvl-name">M</span>S'appuie sur ses notes mais s'exprime pendant 5 min sans relance.</div>
+            <div class="level bm"><span class="lvl-name">BM</span>S'affranchit des notes, parole fluide, contact visuel avec le jury.</div>
+          </div>
+        </div>
+        <div class="grid-row">
+          <div class="criterion">Qualité de l'interaction</div>
+          <div class="expected">Attendu : un dialogue, une écoute, une capacité à intégrer questions et commentaires.</div>
+          <div class="levels">
+            <div class="level nm"><span class="lvl-name">NM</span>Pas d'interaction, ne répond pas, ne regarde pas le jury.</div>
+            <div class="level im"><span class="lvl-name">IM</span>Ne répond pas aux questions sans pour autant être fermé·e.</div>
+            <div class="level m"><span class="lvl-name">M</span>Répond aux questions, prend en compte les observations.</div>
+            <div class="level bm"><span class="lvl-name">BM</span>Vraie interaction : réponses appropriées, communication non verbale (regard, sourire, gestuelle).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-eval">
+      <div class="grid-eval-header">
+        <h3>Capacité 2 — ANALYSER sa démarche et la situer dans le métier</h3>
+      </div>
+      <div class="grid-eval-body">
+        <div class="grid-row">
+          <div class="criterion">Mise en avant des aspects positifs ET des difficultés</div>
+          <div class="expected">Attendu : les 2 volets explicitement abordés (positifs ET négatifs).</div>
+          <div class="levels">
+            <div class="level nm"><span class="lvl-name">NM</span>Ni les aspects positifs ni les négatifs.</div>
+            <div class="level im"><span class="lvl-name">IM</span>Évoque superficiellement, ou un seul des deux volets.</div>
+            <div class="level m"><span class="lvl-name">M</span>Présente les deux volets dans l'exposé et/ou l'entretien.</div>
+            <div class="level bm"><span class="lvl-name">BM</span>Évoque les deux volets de façon précise et étayée.</div>
+          </div>
+        </div>
+        <div class="grid-row">
+          <div class="criterion">Identification et analyse des difficultés (regard réflexif)</div>
+          <div class="expected">Attendu : nommer les difficultés ET les analyser. La capacité à les avoir dépassées n'est pas évaluée ici.</div>
+          <div class="levels">
+            <div class="level nm"><span class="lvl-name">NM</span>Aucun retour réflexif, difficultés non identifiées.</div>
+            <div class="level im"><span class="lvl-name">IM</span>Reste évasif, difficultés citées mais pas analysées.</div>
+            <div class="level m"><span class="lvl-name">M</span>Regard réflexif, sait analyser difficultés et échecs.</div>
+            <div class="level bm"><span class="lvl-name">BM</span>Analyse fine du traitement fait des difficultés, dépassées ou non.</div>
+          </div>
+        </div>
+        <div class="grid-row">
+          <div class="criterion">Mise en perspective dans un cadre plus large</div>
+          <div class="expected">Attendu : une mise à distance qui transpose l'expérience à d'autres contextes (économique, culturel, filière).</div>
+          <div class="levels">
+            <div class="level nm"><span class="lvl-name">NM</span>Ne sait pas transposer même avec sollicitation.</div>
+            <div class="level im"><span class="lvl-name">IM</span>Tente d'élargir mais observations fantaisistes ou irréalistes.</div>
+            <div class="level m"><span class="lvl-name">M</span>Met à distance et transpose au-delà du métier, observations justes.</div>
+            <div class="level bm"><span class="lvl-name">BM</span>Transposition pertinente avec observations culturelles fines.</div>
+          </div>
+        </div>
+        <div class="grid-row">
+          <div class="criterion">Avis personnel justifié</div>
+          <div class="expected">Attendu : un avis personnel justifié de façon étayée.</div>
+          <div class="levels">
+            <div class="level nm"><span class="lvl-name">NM</span>N'exprime aucun avis personnel.</div>
+            <div class="level im"><span class="lvl-name">IM</span>Émet un avis sans pouvoir le justifier.</div>
+            <div class="level m"><span class="lvl-name">M</span>Émet un avis personnel justifié.</div>
+            <div class="level bm"><span class="lvl-name">BM</span>Avis personnel justifié et étayé.</div>
+          </div>
+        </div>
+        <div class="grid-row">
+          <div class="criterion">Lien avec la filière métier</div>
+          <div class="expected">Attendu : le projet explicitement relié à la filière de façon pertinente.</div>
+          <div class="levels">
+            <div class="level nm"><span class="lvl-name">NM</span>Ne relie pas le projet à sa filière.</div>
+            <div class="level im"><span class="lvl-name">IM</span>Sur sollicitation du jury, exprime sommairement le lien.</div>
+            <div class="level m"><span class="lvl-name">M</span>Lien explicite, valorisé si exprimé spontanément dans l'exposé.</div>
+            <div class="level bm"><span class="lvl-name">BM</span>Relie spontanément avec une justification pertinente.</div>
+          </div>
+        </div>
+        <div class="grid-row">
+          <div class="criterion">Identification des enjeux de transition écologique et/ou numérique</div>
+          <div class="expected">Attendu : projection dans le métier au regard des grands enjeux du 21e siècle. La pertinence peut porter sur 1 ou les 2 dimensions selon la spécialité.</div>
+          <div class="levels">
+            <div class="level nm"><span class="lvl-name">NM</span>N'identifie aucun enjeu.</div>
+            <div class="level im"><span class="lvl-name">IM</span>Nomme un enjeu sans l'expliquer ni le relier à la filière.</div>
+            <div class="level m"><span class="lvl-name">M</span>Identifie 1 ou 2 enjeux bien reliés à la filière.</div>
+            <div class="level bm"><span class="lvl-name">BM</span>Identifie les enjeux majeurs et se projette par des problèmes/solutions.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. QUESTIONS -->
+  <section class="module" id="questions">
+    <div class="section-header">
+      <span class="num">06</span>
+      <h2>Les questions probables du jury</h2>
+      <span class="tag">10 minutes d'échange</span>
+    </div>
+
+    <p style="margin-bottom:20px; color:var(--ink-soft);">Pendant l'entretien (10 min), le jury va creuser ce que tu n'as pas assez détaillé, vérifier que tu maîtrises ton sujet, et tester ta capacité à prendre du recul. Voici des questions auxquelles tu dois pouvoir répondre.</p>
+
+    <h3 style="font-family:'Fraunces',serif; font-size:1.2rem; margin: 30px 0 14px; color:var(--blue);">→ Sur la démarche de projet</h3>
+    <div class="question-card"><span class="q-icon">"</span><p>Pourquoi avoir choisi ce sujet plutôt qu'un autre ?</p></div>
+    <div class="question-card"><span class="q-icon">"</span><p>Comment vous êtes-vous réparti les tâches dans le groupe ?</p></div>
+    <div class="question-card"><span class="q-icon">"</span><p>Quelle a été précisément votre contribution personnelle ?</p></div>
+    <div class="question-card"><span class="q-icon">"</span><p>Combien de temps avez-vous consacré à ce projet, en heures ?</p></div>
+    <div class="question-card"><span class="q-icon">"</span><p>Quels partenaires extérieurs avez-vous sollicités ? Comment les avez-vous contactés ?</p></div>
+
+    <h3 style="font-family:'Fraunces',serif; font-size:1.2rem; margin: 30px 0 14px; color:var(--blue);">→ Sur les difficultés</h3>
+    <div class="question-card"><span class="q-icon">"</span><p>Si vous deviez recommencer, que feriez-vous différemment ?</p></div>
+    <div class="question-card"><span class="q-icon">"</span><p>Quelle a été la difficulté la plus importante ? Comment l'avez-vous gérée ?</p></div>
+    <div class="question-card"><span class="q-icon">"</span><p>Avez-vous eu des conflits dans le groupe ? Comment ont-ils été résolus ?</p></div>
+    <div class="question-card"><span class="q-icon">"</span><p>Y a-t-il quelque chose que vous n'avez pas réussi à faire ? Pourquoi ?</p></div>
+
+    <h3 style="font-family:'Fraunces',serif; font-size:1.2rem; margin: 30px 0 14px; color:var(--blue);">→ Sur le lien avec le métier de l'Accueil</h3>
+    <div class="question-card"><span class="q-icon">"</span><p>En quoi ce projet est-il représentatif du métier d'agent d'accueil ?</p></div>
+    <div class="question-card"><span class="q-icon">"</span><p>Quelles compétences professionnelles avez-vous mobilisées concrètement ?</p></div>
+    <div class="question-card"><span class="q-icon">"</span><p>Avez-vous accueilli un public ? Comment vous y êtes-vous préparé·e ?</p></div>
+    <div class="question-card"><span class="q-icon">"</span><p>Comment avez-vous géré une situation d'accueil difficile ou inattendue ?</p></div>
+
+    <h3 style="font-family:'Fraunces',serif; font-size:1.2rem; margin: 30px 0 14px; color:var(--blue);">→ Sur les enjeux et dimensions</h3>
+    <div class="question-card"><span class="q-icon">"</span><p>Quel a été l'impact écologique de votre projet ? Auriez-vous pu faire mieux ?</p></div>
+    <div class="question-card"><span class="q-icon">"</span><p>Quels outils numériques avez-vous utilisés ? Pourquoi ceux-là ?</p></div>
+    <div class="question-card"><span class="q-icon">"</span><p>Comment l'intelligence artificielle ou les bornes interactives transforment-elles le métier de l'accueil ?</p></div>
+    <div class="question-card"><span class="q-icon">"</span><p>Le numérique va-t-il remplacer l'accueil physique selon vous ?</p></div>
+
+    <h3 style="font-family:'Fraunces',serif; font-size:1.2rem; margin: 30px 0 14px; color:var(--blue);">→ Sur l'avenir</h3>
+    <div class="question-card"><span class="q-icon">"</span><p>Que souhaitez-vous faire après le bac ?</p></div>
+    <div class="question-card"><span class="q-icon">"</span><p>En quoi cette expérience vous a-t-elle aidé·e à préciser votre projet professionnel ?</p></div>
+    <div class="question-card"><span class="q-icon">"</span><p>Si vous postuliez demain pour un emploi, comment valoriseriez-vous cette expérience dans votre CV ?</p></div>
+
+    <div class="card warning" style="margin-top:24px;">
+      <h3>Si tu ne sais pas répondre…</h3>
+      <p>Ne reste pas silencieux·euse. Tu peux dire : <em>« C'est une question intéressante, je n'ai pas pensé à cet aspect, mais je dirais que… »</em>, ou <em>« Je ne suis pas certain·e, est-ce que je peux y réfléchir une seconde ? »</em>. Une réponse honnête vaut mieux qu'un silence ou qu'une réponse inventée.</p>
+    </div>
+  </section>
+
+  <!-- 7. SUPPORT -->
+  <section class="module" id="support">
+    <div class="section-header">
+      <span class="num">07</span>
+      <h2>Mon support de 5 pages</h2>
+      <span class="tag">Optionnel mais utile</span>
+    </div>
+
+    <p style="margin-bottom:20px; color:var(--ink-soft);">Le support n'est pas obligatoire et n'est pas évalué en lui-même. Mais bien utilisé, il te sécurise et donne du rythme à ton exposé. Voici une <strong>proposition de répartition</strong> :</p>
+
+    <div class="support-grid">
+      <div class="support-card">
+        <div class="page-num">1</div>
+        <h4>Page de garde</h4>
+        <p>Titre de ton projet, ton nom, ta classe, l'année, une image forte du projet.</p>
+      </div>
+      <div class="support-card">
+        <div class="page-num">2</div>
+        <h4>Le projet en bref</h4>
+        <p>Objectif, contexte, équipe, calendrier (frise chronologique simple).</p>
+      </div>
+      <div class="support-card">
+        <div class="page-num">3</div>
+        <h4>Ma part individuelle</h4>
+        <p>Tes missions, tes productions concrètes, photos de ce que tu as réalisé.</p>
+      </div>
+      <div class="support-card">
+        <div class="page-num">4</div>
+        <h4>Bilan</h4>
+        <p>Aspects positifs, difficultés, ce que tu retiens, perspectives d'amélioration.</p>
+      </div>
+      <div class="support-card">
+        <div class="page-num">5</div>
+        <h4>Compétences & avenir</h4>
+        <p>Tableau des compétences acquises, projet d'études ou projet professionnel.</p>
+      </div>
+    </div>
+
+    <div class="card tip" style="margin-top:20px;">
+      <h3>Règles d'or pour ton support</h3>
+      <ul>
+        <li><strong>Lisible</strong> : police taille 14 minimum, peu de texte par page</li>
+        <li><strong>Visuel</strong> : photos de ton projet, schémas, frises, tableaux</li>
+        <li><strong>Pas un script</strong> : tu ne dois pas le lire, juste le consulter pour ne pas perdre le fil</li>
+        <li><strong>Imprimé en couleur</strong> si possible, agrafé proprement</li>
+        <li><strong>Apporte 3 exemplaires</strong> : un pour toi, un pour chaque membre du jury (geste valorisé)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 8. FICHE PERSONNELLE -->
+  <section class="module" id="preparation">
+    <div class="section-header">
+      <span class="num">08</span>
+      <h2>Ma fiche de préparation personnelle</h2>
+      <span class="tag">Remplis-moi !</span>
+    </div>
+
+    <p style="margin-bottom:20px; color:var(--ink-soft);">Remplis cette fiche en réfléchissant à ton projet. Ces réponses constitueront <strong>l'ossature de ton exposé</strong>. Tes notes restent dans ton navigateur (rien n'est envoyé en ligne).</p>
+
+    <div class="notes-zone">
+      <label>Titre exact de mon projet <span class="hint">(une seule phrase claire)</span></label>
+      <input type="text" data-key="titre" placeholder="Ex : Organisation de la journée portes ouvertes du lycée">
+
+      <label>Type de projet</label>
+      <input type="text" data-key="type" placeholder="Individuel ou collectif ? Avec combien de camarades ?">
+
+      <label>Objectif principal en une phrase <span class="hint">(à quoi ça sert ?)</span></label>
+      <textarea data-key="objectif" placeholder="Mon projet vise à…"></textarea>
+
+      <label>Les 3 ou 4 grandes étapes du projet</label>
+      <textarea data-key="etapes" placeholder="1. ...&#10;2. ...&#10;3. ...&#10;4. ..."></textarea>
+
+      <label>Ma part individuelle <span class="hint">(qu'est-ce que TOI tu as fait ?)</span></label>
+      <textarea data-key="part" placeholder="J'ai personnellement été en charge de…"></textarea>
+
+      <label>2 difficultés que j'ai rencontrées et comment je les ai (ou non) dépassées</label>
+      <textarea data-key="difficultes" placeholder="Difficulté 1 : …&#10;Comment j'ai géré : …&#10;&#10;Difficulté 2 : …&#10;Comment j'ai géré : …"></textarea>
+
+      <label>2 réussites dont je suis fier·e</label>
+      <textarea data-key="reussites" placeholder="Réussite 1 : …&#10;Réussite 2 : …"></textarea>
+
+      <label>Mon avis personnel sur la production finale</label>
+      <textarea data-key="avis" placeholder="Je suis satisfait·e parce que… / Je referais différemment…"></textarea>
+
+      <label>Dimension socio-économique <span class="hint">(impact sur les personnes, l'économie)</span></label>
+      <textarea data-key="socioeco" placeholder="Mon projet a touché … personnes / a permis à l'établissement de…"></textarea>
+
+      <label>Dimension culturelle</label>
+      <textarea data-key="culturel" placeholder="Mon projet valorise / s'adresse à…"></textarea>
+
+      <label>Dimension développement durable</label>
+      <textarea data-key="dd" placeholder="Choix éco-responsables : … / Ce que j'aurais pu améliorer : …"></textarea>
+
+      <label>Dimension numérique</label>
+      <textarea data-key="num" placeholder="Outils numériques utilisés : … / Enjeux : …"></textarea>
+
+      <label>3 compétences professionnelles que j'ai développées</label>
+      <textarea data-key="competences" placeholder="1. …&#10;2. …&#10;3. …"></textarea>
+
+      <label>Mon projet après le bac</label>
+      <textarea data-key="apres" placeholder="Insertion professionnelle (poste visé) ou poursuite d'études (BTS visé) ?"></textarea>
+
+      <div class="notes-actions">
+        <button class="btn btn-primary" id="saveNotes">Sauvegarder mes réponses</button>
+        <button class="btn btn-secondary" id="printNotes">Imprimer ma fiche</button>
+        <button class="btn btn-secondary" id="clearNotes">Tout effacer</button>
+      </div>
+      <p id="saveStatus" style="margin-top:12px; font-size:0.85rem; color:var(--ink-soft);"></p>
+    </div>
+  </section>
+
+  <!-- 9. PIÈGES -->
+  <section class="module" id="pieges">
+    <div class="section-header">
+      <span class="num">09</span>
+      <h2>Les pièges à éviter / les bons réflexes</h2>
+      <span class="tag">Ce qui fait la différence</span>
+    </div>
+
+    <div class="pitfalls">
+      <div class="pitfall-col bad">
+        <h4>À éviter absolument</h4>
+        <ul>
+          <li>Lire ton support de A à Z sans regarder le jury</li>
+          <li>Dire « on a fait » à la place de « j'ai fait » dans un projet collectif</li>
+          <li>Ne parler que des aspects positifs (ou que des difficultés)</li>
+          <li>Répondre par « oui » ou « non » aux questions sans développer</li>
+          <li>Inventer une réponse plutôt qu'admettre que tu ne sais pas</li>
+          <li>Oublier la dimension développement durable et numérique</li>
+          <li>Arriver sans avoir chronométré ton exposé</li>
+          <li>Mâcher du chewing-gum, garder ta veste sur le dossier de la chaise</li>
+          <li>Tutoyer le jury, l'appeler par son prénom</li>
+          <li>Critiquer un·e camarade ou un professeur</li>
+        </ul>
+      </div>
+      <div class="pitfall-col good">
+        <h4>À faire systématiquement</h4>
+        <ul>
+          <li>Saluer les deux examinateurs en arrivant et en partant</li>
+          <li>Regarder alternativement les deux membres du jury</li>
+          <li>Parler à un rythme posé, faire des pauses, respirer</li>
+          <li>Utiliser un vocabulaire professionnel précis (clientèle, prestation, accueil physique/téléphonique, GRC…)</li>
+          <li>Donner des exemples concrets pour illustrer chaque idée</li>
+          <li>Prendre 2 secondes avant de répondre à une question difficile</li>
+          <li>Reformuler la question si tu n'es pas sûr·e d'avoir compris</li>
+          <li>Adopter une posture droite, mains posées, sourire</li>
+          <li>Préparer une phrase de conclusion courte et marquante</li>
+          <li>Remercier le jury à la fin</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. CHECKLIST -->
+  <section class="module" id="checklist">
+    <div class="section-header">
+      <span class="num">10</span>
+      <h2>Ma check-list de la dernière semaine</h2>
+      <span class="tag">À cocher au fur et à mesure</span>
+    </div>
+
+    <div class="checklist">
+      <h3>J-7 : finalisation</h3>
+      <label><input type="checkbox" data-cl="cl1"><span>J'ai écrit le plan détaillé de mes 5 minutes</span></label>
+      <label><input type="checkbox" data-cl="cl2"><span>Mon support de 5 pages est terminé et imprimé</span></label>
+      <label><input type="checkbox" data-cl="cl3"><span>J'ai rempli ma fiche de préparation personnelle</span></label>
+      <label><input type="checkbox" data-cl="cl4"><span>J'ai listé les 6 points obligatoires et vérifié que mon exposé les couvre tous</span></label>
+
+      <h3 style="margin-top:24px;">J-5 à J-2 : entraînement</h3>
+      <label><input type="checkbox" data-cl="cl5"><span>Je me suis entraîné·e au moins 5 fois à voix haute, chronomètre en main</span></label>
+      <label><input type="checkbox" data-cl="cl6"><span>Je tiens mes 5 minutes (± 30 secondes)</span></label>
+      <label><input type="checkbox" data-cl="cl7"><span>Je me suis filmé·e au moins une fois pour repérer mes tics</span></label>
+      <label><input type="checkbox" data-cl="cl8"><span>Je me suis entraîné·e devant quelqu'un (famille, ami·e, camarade)</span></label>
+      <label><input type="checkbox" data-cl="cl9"><span>J'ai préparé des réponses aux 10 questions les plus probables</span></label>
+
+      <h3 style="margin-top:24px;">J-1 : derniers réglages</h3>
+      <label><input type="checkbox" data-cl="cl10"><span>Je connais l'heure et le lieu exacts de mon oral</span></label>
+      <label><input type="checkbox" data-cl="cl11"><span>J'ai préparé ma tenue (sobre, propre, professionnelle)</span></label>
+      <label><input type="checkbox" data-cl="cl12"><span>J'ai mis mon support de 5 pages × 3 exemplaires dans une pochette</span></label>
+      <label><input type="checkbox" data-cl="cl13"><span>J'ai préparé ma carte d'identité et ma convocation</span></label>
+      <label><input type="checkbox" data-cl="cl14"><span>Je me couche tôt, j'évite les écrans tard</span></label>
+
+      <h3 style="margin-top:24px;">Jour J</h3>
+      <label><input type="checkbox" data-cl="cl15"><span>J'ai pris un petit-déjeuner équilibré</span></label>
+      <label><input type="checkbox" data-cl="cl16"><span>J'arrive au moins 15 minutes en avance</span></label>
+      <label><input type="checkbox" data-cl="cl17"><span>J'ai éteint mon téléphone avant d'entrer</span></label>
+      <label><input type="checkbox" data-cl="cl18"><span>Je respire profondément 3 fois avant d'entrer dans la salle</span></label>
+      <label><input type="checkbox" data-cl="cl19"><span>Je salue les deux examinateurs avec un sourire</span></label>
+
+      <div class="progress">
+        <div>Ma progression : <strong id="progressText">0 / 19</strong></div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. MINUTEUR -->
+  <section class="module" id="minuteur">
+    <div class="section-header">
+      <span class="num">11</span>
+      <h2>Minuteur d'entraînement</h2>
+      <span class="tag">Outil d'entraînement</span>
+    </div>
+
+    <p style="margin-bottom:20px; color:var(--ink-soft);">Utilise ce minuteur pour t'entraîner. Choisis un préréglage ou démarre les 5 minutes pour caler ton exposé.</p>
+
+    <div class="timer-box">
+      <div style="font-size:0.85rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold);">Temps restant</div>
+      <div class="timer-display" id="timerDisplay">05:00</div>
+      <div class="timer-presets">
+        <button class="preset-btn" data-time="30">30 sec — Intro</button>
+        <button class="preset-btn" data-time="300">5 min — Présentation</button>
+        <button class="preset-btn" data-time="600">10 min — Échange</button>
+        <button class="preset-btn" data-time="900">15 min — Total</button>
+      </div>
+      <div class="timer-controls">
+        <button class="timer-btn primary" id="startBtn">Démarrer</button>
+        <button class="timer-btn" id="pauseBtn">Pause</button>
+        <button class="timer-btn" id="resetBtn">Réinitialiser</button>
+      </div>
+      <p class="timer-status" id="timerStatus"></p>
+    </div>
+  </section>
+
+  <div class="card tip" style="margin-top:40px; text-align:center;">
+    <h3 style="font-family:'Fraunces',serif; font-size:1.4rem; font-style:italic;">Tu es prêt·e.</h3>
+    <p style="font-size:1.05rem;">Ce que le jury veut entendre, c'est <strong>toi</strong>, ton parcours, ton regard sur ce que tu as vécu pendant ces deux années. Sois honnête, précis·e, et fier·e du chemin parcouru. Bonne chance !</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>Guide interactif – Préparation à l'oral de projet — Bac Professionnel Métiers de l'Accueil</p>
+  <p>Document conçu par Mme LÉGER Isabelle, professeure d'éco-gestion</p>
+  <p>Sources : Arrêté du 20 octobre 2020 (BOEN n° 41 du 29 octobre 2020) — Grille d'évaluation officielle session 2024</p>
+</footer>
+
+<script>
+  // === CHECKLIST PROGRESS ===
+  const boxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+  const progressText = document.getElementById('progressText');
+  const progressFill = document.getElementById('progressFill');
+
+  function updateProgress() {
+    const checked = [...boxes].filter(b => b.checked).length;
+    const total = boxes.length;
+    progressText.textContent = `${checked} / ${total}`;
+    progressFill.style.width = `${(checked/total)*100}%`;
+    // Sauvegarde locale
+    boxes.forEach(b => {
+      try { localStorage.setItem('cl_'+b.dataset.cl, b.checked ? '1':'0'); } catch(e){}
+    });
+  }
+  // Restore checklist
+  boxes.forEach(b => {
+    try {
+      const v = localStorage.getItem('cl_'+b.dataset.cl);
+      if (v === '1') b.checked = true;
+    } catch(e){}
+    b.addEventListener('change', updateProgress);
+  });
+  updateProgress();
+
+  // === NOTES PERSO ===
+  const fields = document.querySelectorAll('.notes-zone [data-key]');
+  fields.forEach(f => {
+    try {
+      const v = localStorage.getItem('note_'+f.dataset.key);
+      if (v !== null) f.value = v;
+    } catch(e){}
+    f.addEventListener('input', () => {
+      try { localStorage.setItem('note_'+f.dataset.key, f.value); } catch(e){}
+    });
+  });
+
+  document.getElementById('saveNotes').addEventListener('click', () => {
+    fields.forEach(f => {
+      try { localStorage.setItem('note_'+f.dataset.key, f.value); } catch(e){}
+    });
+    const status = document.getElementById('saveStatus');
+    status.textContent = '✓ Tes réponses ont bien été sauvegardées dans ton navigateur (' + new Date().toLocaleTimeString('fr-FR') + ').';
+    setTimeout(() => { status.textContent = ''; }, 4000);
+  });
+
+  document.getElementById('printNotes').addEventListener('click', () => {
+    window.print();
+  });
+
+  document.getElementById('clearNotes').addEventListener('click', () => {
+    if (confirm('Veux-tu vraiment effacer toutes tes réponses ? Cette action est irréversible.')) {
+      fields.forEach(f => {
+        f.value = '';
+        try { localStorage.removeItem('note_'+f.dataset.key); } catch(e){}
+      });
+      document.getElementById('saveStatus').textContent = 'Toutes tes réponses ont été effacées.';
+      setTimeout(() => { document.getElementById('saveStatus').textContent = ''; }, 3000);
+    }
+  });
+
+  // === MINUTEUR ===
+  let timerSeconds = 300;
+  let timerInterval = null;
+  let initialSeconds = 300;
+  const display = document.getElementById('timerDisplay');
+  const status = document.getElementById('timerStatus');
+
+  function fmt(s) {
+    const m = Math.floor(s/60).toString().padStart(2,'0');
+    const sec = (s%60).toString().padStart(2,'0');
+    return `${m}:${sec}`;
+  }
+  function refresh() { display.textContent = fmt(timerSeconds); }
+
+  document.querySelectorAll('.preset-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      timerSeconds = parseInt(btn.dataset.time, 10);
+      initialSeconds = timerSeconds;
+      refresh();
+      status.textContent = `Préréglage chargé : ${btn.textContent}`;
+    });
+  });
+
+  document.getElementById('startBtn').addEventListener('click', () => {
+    if (timerInterval) return;
+    if (timerSeconds <= 0) {
+      timerSeconds = initialSeconds;
+      refresh();
+    }
+    status.textContent = '⏱ Le compte à rebours est en cours…';
+    timerInterval = setInterval(() => {
+      timerSeconds--;
+      refresh();
+      if (timerSeconds <= 0) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        status.textContent = '⏰ Temps écoulé !';
+        // Bip sonore simple
+        try {
+          const ctx = new (window.AudioContext || window.webkitAudioContext)();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.connect(gain); gain.connect(ctx.destination);
+          osc.frequency.value = 800;
+          gain.gain.setValueAtTime(0.3, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+0.6);
+          osc.start(); osc.stop(ctx.currentTime+0.6);
+        } catch(e){}
+      }
+    }, 1000);
+  });
+
+  document.getElementById('pauseBtn').addEventListener('click', () => {
+    if (timerInterval) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      status.textContent = '⏸ Pause';
+    }
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    timerSeconds = initialSeconds;
+    refresh();
+    status.textContent = 'Minuteur réinitialisé';
+  });
+
+  refresh();
+</script>
+
+</body>
+</html>
